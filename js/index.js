@@ -32,35 +32,29 @@ function changeColor() {
   para.style.color = selectType;
 }
 
-// for (var i = 0; i < tbody.length; i++) {
-//   // var tdValue = tbody[i].getElementsByTagName("td")[3].innerHTML;
-//   var tdValue = tbody[i].cells[3].innerHTML;
-//   var tdText = tbody[i].cells[3].innerText;
-//   console.log(tdText);
-//   console.log(i);
-//   if (i == 0) {
-//     if (answer1.innerText === correct1.innerText) {
-//       tdText = "Correct";
-//       console.log(tdText);
-//     } else {
-//       tdText = "Wrong";
-//       console.log(tdText);
-//     }
-//   } else if (i == 1) {
-//     if (answer2.innerText === correct2.innerText) {
-//       tdText = "Correct";
-//       console.log(tdText);
-//     } else {
-//       tdText = "Wrong";
-//       console.log(tdText);
-//     }
-//   } else {
-//     if (answer3.innerText === correct3.innerText) {
-//       tdText = "Correct";
-//       console.log(tdText);
-//     } else {
-//       tdText = "Wrong";
-//       console.log(tdText);
-//     }
-//   }
-// }
+for (var i = 0; i < tbody.length; i++) {
+  // var tdValue = tbody[i].getElementsByTagName("td")[3].innerHTML;
+  var tdValue = tbody[i].cells[3].innerHTML;
+  var tdText = tbody[i].cells[3].innerText;
+  console.log(tdText);
+  console.log(i);
+  if (i == 0) {
+    if (answer1.innerText === correct1.innerText) {
+      tbody[i].cells[3].innerText = "Correct";
+    } else {
+      tbody[i].cells[3].innerText = "Wrong";
+    }
+  } else if (i == 1) {
+    if (answer2.innerText === correct2.innerText) {
+      tbody[i].cells[3].innerText = "Correct";
+    } else {
+      tbody[i].cells[3].innerText = "Wrong";
+    }
+  } else {
+    if (answer3.innerText === correct3.innerText) {
+      tbody[i].cells[3].innerText = "Correct";
+    } else {
+      tbody[i].cells[3].innerText = "Wrong";
+    }
+  }
+}
