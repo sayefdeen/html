@@ -16,5 +16,3 @@ var userAnswer3 = prompt(
 answer1.innerText = userAnswer1;
 answer2.innerText = userAnswer2;
 answer3.innerText = userAnswer3;
-
-if()
