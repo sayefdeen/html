@@ -110,3 +110,11 @@ nav ul {
 ol li a {
   border: tomato dashed 1px;
 }
+
+table,
+th,
+td {
+  border: black solid 1px;
+  text-align: center;
+  font-size: 20px;
+}
