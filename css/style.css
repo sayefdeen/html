@@ -118,3 +118,7 @@ td {
   text-align: center;
   font-size: 20px;
 }
+
+#self-generated {
+  word-spacing: 1px;
+}
