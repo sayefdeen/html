@@ -89,22 +89,45 @@ function result() {
   }
 }
 
-function text() {
-  return " This is a generated Text";
-}
+// function text() {
+//   var userInput = prompt("Enter A text That you want to repeate")
+// }
 
 function generateText() {
-  var selfpara = document.getElementById("self-generated");
-  for (var i = 0; i < 3; i++) {
-    selfpara.innerText += text();
+  var userInput = prompt("Enter A text That you want to be reapeatd");
+  userInput = userInput + "  ";
+  var repeatedNumber = prompt(
+    "How Maby Time you want to repeate this text?\n Max is 5 times"
+  );
+  while (repeatedNumber > 5) {
+    repeatedNumber = prompt("maximum number is 5 Please");
   }
+  var selfpara = document.getElementById("self-generated");
+  for (var i = 0; i < repeatedNumber; i++) {
+    selfpara.innerText += userInput + "\xA0";
+  }
+  var finalResult = selfpara.innerText;
+  selfpara.textContent =
+    finalResult +
+    " You Asked to Repeat " +
+    " " +
+    userInput +
+    " " +
+    repeatedNumber +
+    " times ";
+
+  // selfpara.innerText = `${finalResult} You Asked to Repeat ${userInput} ${repeatedNumber} Times`;
 }
 
 function validation(userAnswer1, userAnswer2, userAnswer3) {
-  var Regix = /^[a-zA-Z]+$/gm;
+  var Regix = /^[a-zA-Z]+$/;
   console.log(userAnswer1 + "/" + userAnswer2 + "/" + userAnswer3);
   var test1 = Regix.test(userAnswer1.trim());
+  console.log(test1);
   var test2 = Regix.test(userAnswer2.trim());
+  console.log(userAnswer2 + " " + userAnswer2);
+  console.log(test2);
   var test3 = Regix.test(userAnswer3.trim());
+  console.log(test3);
   return [test1, test2, test3];
 }
