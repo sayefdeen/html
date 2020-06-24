@@ -28,7 +28,7 @@ function questions() {
   var resultArr = validation(userAnswer1, userAnswer2, userAnswer3);
   console.log(resultArr);
 
-  if (resultArr[0]) {
+  if (resultArr[0] || userAnswer1) {
     answer1.innerText = userAnswer1;
   } else {
     answer1.innerText = "Bad Input";
@@ -125,13 +125,21 @@ function generateText() {
 
 function validation(userAnswer1, userAnswer2, userAnswer3) {
   var Regix = /^[a-zA-Z]+$/;
-  console.log(userAnswer1 + "/" + userAnswer2 + "/" + userAnswer3);
-  var test1 = Regix.test(userAnswer1.trim());
-  console.log(test1);
-  var test2 = Regix.test(userAnswer2.trim());
-  console.log(userAnswer2 + " " + userAnswer2);
-  console.log(test2);
-  var test3 = Regix.test(userAnswer3.trim());
-  console.log(test3);
+  if (userAnswer1 == null) {
+    userAnswer1 = " ";
+  } else if (userAnswer2 == null) {
+    userAnswer2 = " ";
+  } else if (userAnswer3 == null) {
+    userAnswer3 = " ";
+  } else {
+    // console.log(userAnswer1 + "/" + userAnswer2 + "/" + userAnswer3);
+    var test1 = Regix.test(userAnswer1.trim());
+    // console.log(test1);
+    var test2 = Regix.test(userAnswer2.trim());
+    // console.log(userAnswer2 + " " + userAnswer2);
+    // console.log(test2);
+    var test3 = Regix.test(userAnswer3.trim());
+    console.log(test3);
+  }
   return [test1, test2, test3];
 }
