@@ -12,19 +12,24 @@ var para = document.querySelector("#change");
 // console.log(tbody.length);
 // console.log(tbody[2].getElementsByTagName("td")[3].innerHTML);
 
-var userAnswer1 = prompt(
-  "Can you guess the first country with the most casses?"
-);
-var userAnswer2 = prompt(
-  "Can you guess the second country with the most casses?"
-);
-var userAnswer3 = prompt(
-  "Can you guess the third country with the most casses?"
-);
+questions();
+result();
 
-answer1.innerText = userAnswer1;
-answer2.innerText = userAnswer2;
-answer3.innerText = userAnswer3;
+function questions() {
+  var userAnswer1 = prompt(
+    "Can you guess the first country with the most casses?"
+  );
+  var userAnswer2 = prompt(
+    "Can you guess the second country with the most casses?"
+  );
+  var userAnswer3 = prompt(
+    "Can you guess the third country with the most casses?"
+  );
+
+  answer1.innerText = userAnswer1;
+  answer2.innerText = userAnswer2;
+  answer3.innerText = userAnswer3;
+}
 
 function changeColor() {
   var selectType = select.options[select.selectedIndex].value;
@@ -32,29 +37,37 @@ function changeColor() {
   para.style.color = selectType;
 }
 
-for (var i = 0; i < tbody.length; i++) {
-  // var tdValue = tbody[i].getElementsByTagName("td")[3].innerHTML;
-  var tdValue = tbody[i].cells[3].innerHTML;
-  var tdText = tbody[i].cells[3].innerText;
-  console.log(tdText);
-  console.log(i);
-  if (i == 0) {
-    if (answer1.innerText === correct1.innerText) {
-      tbody[i].cells[3].innerText = "Correct";
+function result() {
+  for (var i = 0; i < tbody.length; i++) {
+    // var tdValue = tbody[i].getElementsByTagName("td")[3].innerHTML;
+    var tdValue = tbody[i].cells[3].innerHTML;
+    var tdText = tbody[i].cells[3].innerText;
+    console.log(tdText);
+    console.log(i);
+    if (i == 0) {
+      if (
+        answer1.innerText.toLowerCase() === correct1.innerText.toLowerCase()
+      ) {
+        tbody[i].cells[3].innerText = "Correct";
+      } else {
+        tbody[i].cells[3].innerText = "Wrong";
+      }
+    } else if (i == 1) {
+      if (
+        answer2.innerText.toLowerCase() === correct2.innerText.toLowerCase()
+      ) {
+        tbody[i].cells[3].innerText = "Correct";
+      } else {
+        tbody[i].cells[3].innerText = "Wrong";
+      }
     } else {
-      tbody[i].cells[3].innerText = "Wrong";
-    }
-  } else if (i == 1) {
-    if (answer2.innerText === correct2.innerText) {
-      tbody[i].cells[3].innerText = "Correct";
-    } else {
-      tbody[i].cells[3].innerText = "Wrong";
-    }
-  } else {
-    if (answer3.innerText === correct3.innerText) {
-      tbody[i].cells[3].innerText = "Correct";
-    } else {
-      tbody[i].cells[3].innerText = "Wrong";
+      if (
+        answer3.innerText.toLowerCase() === correct3.innerText.toLowerCase()
+      ) {
+        tbody[i].cells[3].innerText = "Correct";
+      } else {
+        tbody[i].cells[3].innerText = "Wrong";
+      }
     }
   }
 }
