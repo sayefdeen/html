@@ -14,6 +14,7 @@ var para = document.querySelector("#change");
 
 questions();
 result();
+generateText();
 
 function questions() {
   var userAnswer1 = prompt(
@@ -25,10 +26,26 @@ function questions() {
   var userAnswer3 = prompt(
     "Can you guess the third country with the most casses?"
   );
+  var resultArr = validation(userAnswer1, userAnswer2, userAnswer3);
+  console.log(resultArr);
 
-  answer1.innerText = userAnswer1;
-  answer2.innerText = userAnswer2;
-  answer3.innerText = userAnswer3;
+  if (resultArr[0]) {
+    answer1.innerText = userAnswer1;
+  } else {
+    answer1.innerText = "Bad Input";
+  }
+
+  if (resultArr[1]) {
+    answer2.innerText = userAnswer2;
+  } else {
+    answer2.innerText = "Bad Input";
+  }
+
+  if (resultArr[2]) {
+    answer3.innerText = userAnswer3;
+  } else {
+    answer3.innerText = "Bad Input";
+  }
 }
 
 function changeColor() {
@@ -48,26 +65,46 @@ function result() {
       if (
         answer1.innerText.toLowerCase() === correct1.innerText.toLowerCase()
       ) {
-        tbody[i].cells[3].innerText = "Correct";
+        tbody[i].cells[3].innerText = "Correct Answer";
       } else {
-        tbody[i].cells[3].innerText = "Wrong";
+        tbody[i].cells[3].innerText = "Wrong Answer";
       }
     } else if (i == 1) {
       if (
         answer2.innerText.toLowerCase() === correct2.innerText.toLowerCase()
       ) {
-        tbody[i].cells[3].innerText = "Correct";
+        tbody[i].cells[3].innerText = "Correct Answer";
       } else {
-        tbody[i].cells[3].innerText = "Wrong";
+        tbody[i].cells[3].innerText = "Wrong Answer";
       }
     } else {
       if (
         answer3.innerText.toLowerCase() === correct3.innerText.toLowerCase()
       ) {
-        tbody[i].cells[3].innerText = "Correct";
+        tbody[i].cells[3].innerText = "Correct Answer";
       } else {
-        tbody[i].cells[3].innerText = "Wrong";
+        tbody[i].cells[3].innerText = "Wrong Answer";
       }
     }
   }
+}
+
+function text() {
+  return " This is a generated Text";
+}
+
+function generateText() {
+  var selfpara = document.getElementById("self-generated");
+  for (var i = 0; i < 3; i++) {
+    selfpara.innerText += text();
+  }
+}
+
+function validation(userAnswer1, userAnswer2, userAnswer3) {
+  var Regix = /^[a-zA-Z]+$/gm;
+  console.log(userAnswer1 + "/" + userAnswer2 + "/" + userAnswer3);
+  var test1 = Regix.test(userAnswer1.trim());
+  var test2 = Regix.test(userAnswer2.trim());
+  var test3 = Regix.test(userAnswer3.trim());
+  return [test1, test2, test3];
 }
