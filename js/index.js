@@ -110,9 +110,9 @@ function generateText() {
   selfpara.textContent =
     finalResult +
     " You Asked to Repeat " +
-    " " +
+    " ( " +
     userInput +
-    " " +
+    " ) " +
     repeatedNumber +
     " times ";
 
