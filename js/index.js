@@ -14,7 +14,6 @@ var para = document.querySelector("#change");
 
 questions();
 result();
-generateText();
 
 function questions() {
   var userAnswer1 = prompt(
@@ -94,12 +93,17 @@ function result() {
 // }
 
 function generateText() {
+  var numberRegix = /^\d$/;
   var userInput = prompt("Enter A text That you want to be reapeatd");
-  userInput = userInput + "  ";
+
+  while (userInput === null || userInput === " " || userInput === "") {
+    userInput = prompt("Don't Leave it Empty");
+  }
   var repeatedNumber = prompt(
     "How Maby Time you want to repeate this text?\n Max is 5 times"
   );
-  while (repeatedNumber > 5) {
+  console.log("TEst 2 " + repeatedNumber > 5);
+  while (repeatedNumber > 5 || !numberRegix.test(repeatedNumber)) {
     repeatedNumber = prompt("maximum number is 5 Please");
   }
   var selfpara = document.getElementById("self-generated");
